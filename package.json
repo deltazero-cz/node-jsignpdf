@@ -1,0 +1,33 @@
+{
+  "name": "jsignpdf",
+  "version": "1.0.0",
+  "description": "Node Wrapper for JSignPdf (java) for Digitally Signing PDFs",
+  "author": "ΔO - David Obdržálek <david@deltazero.cz>",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "mocha dist/tests --timeout 10000",
+    "build": "tsc -b",
+    "prepare": "npm run build"
+  },
+  "repository": "deltazero-cz/node-jsignpdf",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^16.11.00",
+    "@types/mocha": "latest",
+    "@types/chai": "latest",
+    "typescript": "latest",
+    "mocha": "latest",
+    "chai": "latest"
+  },
+  "keywords": [
+    "node",
+    "JSignPdf",
+    "pdf",
+    "pdf certificates",
+    "pdf signatures",
+    "pdf signing",
+    "pdf digital signatures"
+  ]
+}
