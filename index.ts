@@ -24,7 +24,7 @@ export default async function signPDF(pdf: Buffer, p12: Buffer, pass: string, ti
   await fs.writeFile(infile, pdf)
 
   return new Promise((resolve, reject) => {
-    exec(`java -jar JSignPDF.jar -kst PKCS12 -d "${tmpdir}" -ksf "${certfile}" -ksp "${pass}" "${infile}"`, {
+    exec(`java -jar JSignPdf.jar -kst PKCS12 -d "${tmpdir}" -ksf "${certfile}" -ksp "${pass}" "${infile}"`, {
       cwd: resolvePath(__dirname.replace(/\/dist$/, ''), 'lib/jsignpdf-2.2.0'),
       timeout
     }, async err => {
