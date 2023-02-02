@@ -22,6 +22,8 @@ import { resolve as resolvePath } from 'path'
  * @param {string} [options.hashAlgorithm] hashing algorithm for the signature, SHA1
  *    Available options: SHA1, SHA256, SHA384, SHA512, RIPEMD160
  * @param {string} [options.tsa] URL of timestamping server, i.e. http://tsa.izenpe.com (default null)
+ * @param {string} [options.tsaHashAlgorithm] hashing algorithm for the timestamp, SHA1
+ *    Available options: SHA1, SHA256, SHA384, SHA512
  * @param {boolean} [options.crl] enable CRL certificate validation, default false
  * @param {boolean} [options.crl] enable CRL certificate validation, default false
  * @param {boolean} [options.ocsp] enable OCSP certificate validation, default false
@@ -50,6 +52,7 @@ export type PDFSigningOptions = {
   keyType ?: string
   hashAlgorithm ?: 'SHA1'|'SHA256'|'SHA384'|'SHA512'|'RIPEMD160'
   tsa ?: string,
+  tsaHashAlgorithm ?: 'SHA1'|'SHA256'|'SHA384'|'SHA512',
   crl ?: boolean
   ocsp ?: boolean
   ocspResponder ?: string
@@ -90,6 +93,7 @@ export default async function signPDF(pdf: Buffer, p12: Buffer, pass?: string, o
         options?.level && `--certification-level ${options?.level}`,
         options?.hashAlgorithm  && `--hash-algorithm ${options?.hashAlgorithm}`,
         options?.tsa  && `--tsa-server-url "${options?.tsa}"`,
+        options?.tsaHashAlgorithm && `--tsa-hash-algorithm ${options?.tsaHashAlgorithm}`,
         options?.crl && `--crl`,
         options?.ocsp && `--ocsp`,
         options?.ocspResponder  && `--ocsp-server-url "${options?.ocspResponder}"`,

@@ -45,6 +45,8 @@ const signed : Buffer = await signPDF(
  * @param {string} [options.hashAlgorithm] hashing algorithm for the signature, SHA1
  *    Available options: SHA1, SHA256, SHA384, SHA512, RIPEMD160
  * @param {string} [options.tsa] URL of timestamping server, i.e. http://tsa.izenpe.com (default null)
+ * @param {string} [options.tsaHashAlgorithm] hashing algorithm for the timestamp, SHA1
+ *    Available options: SHA1, SHA256, SHA384, SHA512
  * @param {boolean} [options.crl] enable CRL certificate validation, default false
  * @param {boolean} [options.crl] enable CRL certificate validation, default false
  * @param {boolean} [options.ocsp] enable OCSP certificate validation, default false
